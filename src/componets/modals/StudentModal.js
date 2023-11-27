@@ -5,10 +5,33 @@ function StudentModal({ showModal, setShowModal, onSubmit, student }) {
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
 
+  useEffect(() => {
+    if (student) {
+      setName(student.name);
+      setAge(student.age);
+      setEmail(student.email);
+    }
+  }, [student]);
 
-  // To do: Cierra el modal y resetea los campos
+  const handleSubmit = () => {
+    onSubmit({
+      name,
+      age,
+      email,
+    });
+    // Reset fields and close modal
+    setName('');
+    setAge('');
+    setEmail('');
+    setShowModal(false);
+  };
+
+  // Cierra el modal y resetea los campos
   const handleClose = () => {
-
+    setName('');
+    setAge('');
+    setEmail('');
+    setShowModal(false);
   };
 
   if (!showModal) {
