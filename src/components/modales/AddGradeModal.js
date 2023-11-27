@@ -14,6 +14,7 @@ function AddGradeModal({
   const [grade, setGrade] = useState("");
   const [subjectsWithoutGrades, setSubjectsWithoutGrades] = useState([]);
     
+  //Declaramos el efecto
   useEffect(() => {
     const fetchSubjectsWithoutGrades = async () => {
       const result = await axios.get(
